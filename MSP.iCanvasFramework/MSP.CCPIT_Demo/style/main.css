@@ -1,0 +1,15 @@
+﻿body {
+    width:1440px;
+    height:823px;
+    background-color:rgb(57,61,70)
+}
+
+#sentiment {
+    width:639px;
+    height:218px;
+    background-color:white;
+    border-radius:8px;
+    border:solid 5px rgb(40,43,49);
+    float:left;
+    margin-left:21px;
+}

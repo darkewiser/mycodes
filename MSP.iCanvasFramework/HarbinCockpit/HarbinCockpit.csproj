@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{408E8FBB-A625-452F-864B-9E85BA715F13}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HarbinCockpit</RootNamespace>
+    <AssemblyName>HarbinCockpit</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data">
+      <HintPath>..\HarbinDemo\lib\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Command.html" />
+    <Content Include="css\Command.css" />
+    <Content Include="css\river.css" />
+    <Content Include="ImageT.html" />
+    <Content Include="img\back.jpg" />
+    <Content Include="img\blgcSmall.jpg" />
+    <Content Include="img\button_Left.png" />
+    <Content Include="img\button_Line.png" />
+    <Content Include="img\button_Right.png" />
+    <Content Include="img\c1_16.png" />
+    <Content Include="img\c2_24.png" />
+    <Content Include="img\c3_32.png" />
+    <Content Include="img\c4_40.png" />
+    <Content Include="img\close.gif" />
+    <Content Include="img\dbsz.jpg" />
+    <Content Include="img\dbsz_current.jpg" />
+    <Content Include="img\delete.png" />
+    <Content Include="img\gkjcSmall.png" />
+    <Content Include="img\gray_point.png" />
+    <Content Include="img\green_point.png" />
+    <Content Include="img\gytSmall.png" />
+    <Content Include="img\Home02.jpg" />
+    <Content Include="img\jcsjSmall.png" />
+    <Content Include="img\kqzl.jpg" />
+    <Content Include="img\kqzl_current.jpg" />
+    <Content Include="img\map_bg3.png" />
+    <Content Include="img\orange_point.png" />
+    <Content Include="img\ppoint.png" />
+    <Content Include="img\purple_point.png" />
+    <Content Include="img\pwqy.jpg" />
+    <Content Include="img\pwqy_current.jpg" />
+    <Content Include="img\red_point.png" />
+    <Content Include="img\save.png" />
+    <Content Include="img\w01.png" />
+    <Content Include="img\w02.png" />
+    <Content Include="img\w03.png" />
+    <Content Include="img\w04.png" />
+    <Content Include="img\w05.png" />
+    <Content Include="img\xzsp.jpg" />
+    <Content Include="img\xzsp_current.jpg" />
+    <Content Include="img\xzsxSmall.png" />
+    <Content Include="img\xzxn.jpg" />
+    <Content Include="img\xzxn_current.jpg" />
+    <Content Include="img\yellow_point.png" />
+    <Content Include="img\zxjcSmall.png" />
+    <Content Include="js\ColorMap1.0.js" />
+    <Content Include="js\Command.js" />
+    <Content Include="js\CommandData.js" />
+    <Content Include="js\hourData.js" />
+    <Content Include="js\River.js" />
+    <Content Include="River.html" />
+    <Content Include="css\HarCockpit.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="img\blgc.jpg" />
+    <Content Include="img\gkjc.png" />
+    <Content Include="img\gyt.png" />
+    <Content Include="img\jcsj.png" />
+    <Content Include="img\xzsx.png" />
+    <Content Include="img\zxjc.png" />
+    <Content Include="js\Common.js" />
+    <Content Include="js\exporting.js" />
+    <Content Include="js\highcharts-more.js" />
+    <Content Include="js\highcharts.js" />
+    <Content Include="js\Test.js" />
+    <Content Include="js\jquery-2.0.3.js" />
+    <Content Include="js\jquery-ui-1.10.3.custom.js" />
+    <Content Include="js\jquery.tmpl.min.js" />
+    <Content Include="js\jquery.xml2json.js" />
+    <Content Include="js\HarCockpit.js" />
+    <Content Include="default.html" />
+    <Content Include="js\PostionsList.js" />
+    <Content Include="Web.config" />
+    <Content Include="administration.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBUtility\DbHelper.cs" />
+    <Compile Include="GetHarbinPMData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\baidumaps - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\baidumaps - Web Deploy.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="哈尔滨市重污染天气应急预案.docx" />
+    <Content Include="联系人名单.docx" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54969/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

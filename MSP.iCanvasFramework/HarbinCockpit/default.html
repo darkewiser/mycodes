@@ -1,0 +1,348 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>环境管控决策指挥平台</title>
+    <script src="js/jquery-2.0.3.js"></script>
+    <script src="js/jquery.tmpl.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/exporting.js"></script>
+    <script src="js/highcharts-more.js"></script>
+    <script src="http://api.map.baidu.com/api?v=1.5&ak=6abbbc225464f81f8beefb0a945e65d0" type="text/javascript"></script>
+    <script src="js/PostionsList.js"></script>
+    <script src="js/Test.js"></script>
+    <script src="js/HarCockpit.js"></script>
+    <script src="js/Common.js"></script>
+    <link href="css/HarCockpit.css" rel="stylesheet" />
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="mapsContainer">
+        <div id="map-canvas"></div>
+        <div id="map-water"></div>
+    </div>
+    <div id="content-cockpit">
+        <div id="content-first">
+            <table class="dataContent">
+                <tr class="fourTips">
+                    <td width="185">
+                        <div id="aqiChart"></div>
+                    </td>
+                    <td width="125">
+                        <div id="feedbackInfos">
+                            <div style="padding-top: 25px;">
+                                <div id="peopleFeel"></div>
+                                <div class="feedbackTitle" style="padding-right: 12px;"><a href="http://msdc.isoftstone.com/cases/yuqingfenxi/" target="_blank">舆情指数</a></div>
+                            </div>
+                            <div style="clear: left; padding-top: 20px;">
+                                <div class="feedbackTitle" style="float: left; margin: 32px 0 0 14px">信访量</div>
+                                <div id="letterNum" style="float: right;">13</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td width="125">
+                        <div id="monitor">
+                            <div class="posColor" style="border: 1px #cf4b46 solid; background-color: #cf4b46; margin-top: 25px; margin-bottom: 20px;">
+                                <div class="colorType">红色：</div>
+                                <div class="colorNum">12</div>
+                            </div>
+                            <div class="posColor" style="border: 1px #d2932c solid; background-color: #d2932c; margin-bottom: 20px;">
+                                <div class="colorType">黄色：</div>
+                                <div class="colorNum">12</div>
+                            </div>
+                            <div class="posColor" style="border: 1px gray solid">
+                                <div class="colorType" style="color: #444">白色：</div>
+                                <div class="colorNum" style="color: #333">39</div>
+                            </div>
+                            <div class="subTitle">监控预警</div>
+                        </div>
+                    </td>
+                    <td width="125">
+                        <div id="transform">
+                            <div class="transferVal">72.64%</div>
+                            <div class="transfer">传输率</div>
+                            <div class="overproofVal">34.12%</div>
+                            <div class="overproof">超标率</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div id="waterInfosList">
+                            <ul>
+                                <li id="posWater"><a href="#tabs-3"></a></li>
+                                <!-- 地表水质-->
+                                <li id="comWater"><a href="#tabs-4"></a></li>
+                                <!--排污企业-->
+                            </ul>
+                            <div id="tabs-3" style="height: 200px; overflow: auto">
+                                <table cellspacing="0" cellpadding="3" class="comTable" height="100" width="100%" id="waterMinitorPoTable">
+                                    <tr height="25%" class="sumtitle" style="background-color: #f2f2f4;">
+                                        <td colspan="7" style="font-size: 16px;">水质监测点</td>
+                                    </tr>
+                                    <tr height="25%">
+                                        <td></td>
+                                        <td style="color: #333;">点位</td>
+                                        <td style="color: #333;">PH</td>
+                                        <td style="color: #333;">DO(mg/L)</td>
+                                        <td style="color: #333;">COD(mg/L)</td>
+                                        <td style="color: #333;">NH3-N(mg/L)</td>
+                                        <td style="color: #333;">本周水质</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="tabs-4"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr width="660">
+                    <td colspan="4">
+                        <div id="airInfosList"  onclick="javascript:void();">
+                            <ul  onclick="javascript:void();">
+                                <li id="airQuality"><a href="#tabs-1"></a></li>
+                                <!--空气质量-->
+                                <li id="airComChart"><a href="#tabs-2"></a></li>
+                                <!--排污企业-->
+                                <li id="toCommand" onclick="javascript:void();"><a href="#" onclick='javascript:window.location.href="command.html";return false;'>应急指挥</a></li>
+                            </ul>
+                            <div id="tabs-1" style="height: 200px; overflow: auto">
+                                <table cellspacing="2" cellpadding="3" class="comTable" height="100" width="100%" id="airMinitorPoTable">
+                                    <tr height="25%" class="sumtitle" style="background-color: #f2f2f4;">
+                                        <td colspan="4" style="font-size: 16px;">空气质量监测点
+                                            <div><a href="#" onclick="analyseDetails()" id="detailsDisplay">详细分析</a></div>
+                                        </td>
+                                    </tr>
+                                    <tr height="25%">
+                                        <td></td>
+                                        <td style="color: #333;">点位</td>
+                                        <td style="color: #333;">AQI</td>
+                                        <td style="color: #333;">首要污染物</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="tabs-2"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <div id="administration">
+                            <ul>
+                                <li id="approval"><a href="#tabs-5"></a></li>
+                                <!--行政审批-->
+                                <li id="efficiency"><a href="#tabs-6"></a></li>
+                                <!--行政效能-->
+                            </ul>
+                            <div id="tabs-5" style="height: 210px;">
+                                <div id="adminChart"></div>
+                                <div id="adminTable">
+                                    <table cellspacing="0" cellpadding="1" height="100%" width="180">
+                                        <tr>
+                                            <td>申报</td>
+                                            <td>通过</td>
+                                            <td>拒绝</td>
+                                            <td>总投资</td>
+                                        </tr>
+                                        <tr>
+                                            <td>140</td>
+                                            <td>90</td>
+                                            <td>50</td>
+                                            <td>30000万</td>
+                                        </tr>
+                                        <tr>
+                                            <td>环评</td>
+                                            <td>建设</td>
+                                            <td>试生产</td>
+                                            <td>竣工</td>
+                                        </tr>
+                                        <tr>
+                                            <td>134</td>
+                                            <td>233</td>
+                                            <td>122</td>
+                                            <td>125</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="tabs-6" style="height: 210px; overflow: auto;">
+                                <table cellspacing="1" cellpadding="1" height="100" width="100%" id="administrativePotencyTable">
+                                    <tr height="25%" style="background-color: white; font-size: 14px;">
+                                        <td style="color: #333;">行政事项</td>
+                                        <td style="color: #333;">办件数量</td>
+                                        <td style="color: #333;">审批用时</td>
+                                        <td style="color: #333;">比法定时提前</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="content-second">
+            <ul>
+                <li>
+                    <div class="return" onclick="returnToDetails()"></div>
+                </li>
+                <li class="SO2ChartTab">
+                    <div><a href="#SO2Chart">SO2</a></div>
+                </li>
+                <li class="NOxChartTab">
+                    <div><a href="#NoxChart">NOx</a></div>
+                </li>
+            </ul>
+            <div id="SO2Chart">
+                <div id="cityConcentration">
+                    <table>
+                        <tr>
+                            <td>
+                                <div id="cityConcentrationM"></div>
+                                <div id="cityConcentrationD"></div>
+                                <div id="cityConcentrationH"></div>
+                            </td>
+                            <td>
+                                <div id="totalPro"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="posConcentration"></div>
+                <div id="posDayConcentration"></div>
+                <div id="posHourConcentration"></div>
+                <div id="comConcentration">
+                    <table>
+                        <tr>
+                            <td>
+                                <div id="comPieChart"></div>
+                                <div id="comDayPieChart"></div>
+                                <div id="comHourPieChart"></div>
+                            </td>
+                            <td>
+                                <div id="comColumnChart"></div>
+                                <div id="comDayColumnChart"></div>
+                                <div id="comHourColumnChart"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div id="NoxChart"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+<div id="detailsChart" style="position: absolute; background-color: #FFFFFF">
+    <div id="chartContainer" style="float: left"></div>
+    <div id="closeButton" style="float: left; padding: 2px 10px 0 0">
+        <a href="#" style="font-size: 20px; text-decoration: none; color: #57738e"><img src="img/close.gif" /></a>
+    </div>
+</div>
+
+<div id="enterpriseDetail" style="display: none; position: absolute">
+    <div id="zxjc">
+        <img src="img/zxjc.png" name="imgzxjc" usemap="#mapzxjc" />
+        <map id="mapzxjc">
+            <area shape="rect" coords="121,28,177,49" href="javascript:detailDialog.changeEnterpriseDetailTab('gkjc')" />
+            <area shape="rect" coords="621,6,629,16" href="javascript:detailDialog.hide();" />
+        </map>
+    </div>
+    <div id="zxjcSmall">
+        <img src="img/zxjcSmall.png" name="imgzxjczxjcSmall" usemap="#mapzxjcSmall" />
+        <map id="mapzxjcSmall">
+            <area shape="rect" coords="94,19,138,35" href="javascript:detailDialog.changeEnterpriseDetailTab('gkjcSmall')" />
+            <area shape="rect" coords="483,4,498,12" href="javascript:detailDialog.hide();" />
+        </map>
+    </div>
+    <div id="gkjc" style="display: none">
+        <img src="img/gkjc.png" usemap="#mapgkjc" />
+        <map id="mapgkjc">
+            <area shape="rect" coords="63,25,117,46" href="javascript:detailDialog.changeEnterpriseDetailTab('zxjc')" />
+            <area shape="rect" coords="379,77,422,124" href="javascript:detailDialog.changeEnterpriseDetailTab('gyt')" />
+            <area shape="rect" coords="621,6,629,16" href="javascript:detailDialog.hide();" />
+        </map>
+    </div>
+    <div id="gkjcSmall" style="display: none">
+        <img src="img/gkjcSmall.png" usemap="#mapgkjcSmall" />
+        <map id="mapgkjcSmall">
+            <area shape="rect" coords="48,19,91,35" href="javascript:detailDialog.changeEnterpriseDetailTab('zxjcSmall')" />
+            <area shape="rect" coords="294,60,329,96" href="javascript:detailDialog.changeEnterpriseDetailTab('gytSmall')" />
+            <area shape="rect" coords="483,4,498,12" href="javascript:detailDialog.hide();" />
+        </map>
+    </div>
+    <div id="gyt" style="display: none">
+        <img src="img/gyt.png" usemap="#mapgyt" />
+        <map id="mapgyt">
+            <area shape="rect" coords="634,2,646,11" href="javascript:detailDialog.hide();" />
+        </map>
+    </div>
+    <div id="gytSmall" style="display: none">
+        <img src="img/gytSmall.png" usemap="#mapgytSmall" />
+        <map id="mapgytSmall">
+            <area shape="rect" coords="552,1,562,9" href="javascript:detailDialog.hide();" />
+        </map>
+    </div>
+    <div id="jcsj" style="display: none">
+        <img src="img/jcsj.png" usemap="#mapjcsj" />
+        <map id="mapjcsj">
+            <area shape="rect" coords="605,4,613,14" href="javascript:detailDialog.hide();" />
+        </map>
+    </div>
+    <div id="jcsjSmall" style="display: none">
+        <img src="img/jcsjSmall.png" usemap="#mapjcsjSmall" />
+        <map id="mapjcsjSmall">
+            <area shape="rect" coords="553,6,562,14" href="javascript:detailDialog.hide();" />
+        </map>
+    </div>
+    <div id="xzsx" style="display: none">
+        <img id="imgxzsx" src="img/xzsx.png" usemap="#mapxzsx" />
+        <img id="imgblgc" src="img/blgc.jpg" width="900" style="display: none; position: absolute" />
+        <map id="mapxzsx">
+            <area shape="rect" coords="366,101,427,607" href="javascript:showblgc();" />
+            <area shape="rect" coords="973,0,1011,13" href="javascript:detailDialog.hide();" />
+        </map>
+    </div>
+    <div id="xzsxSmall" style="display: none">
+        <img id="imgxzsxSmall" src="img/xzsxSmall.png" usemap="#mapxzsxSmall" />
+        <img id="imgblgcSmall" src="img/blgcSmall.jpg" style="display: none; position: absolute" />
+        <map id="mapxzsxSmall">
+            <area shape="rect" coords="366,61,429,364" href="javascript:showblgcSmall();" />
+            <area shape="rect" coords="997,0,1013,9" href="javascript:detailDialog.hide();" />
+        </map>
+    </div>
+</div>
+
+<script id="airMinitorPo" type="text/x-jquery-tmpl">
+    <tr>
+        <td class="aqiIcon"><img src='${$data["空气质量图标"]}' /></td>
+        <td>
+            <div class="positionName" onmouseover="this.style.color='#599bd7'" onmouseout="this.style.color='#555555'">${[站点名称]}</div>
+        </td>
+        <td>${AQI}</td>
+        <td>${[首要污染物]}</td>
+    </tr>
+</script>
+
+<script id="waterMinitorPo" type="text/x-jquery-tmpl">
+    <tr>
+        <td class="waterIcon"><img src='${$data["水质图标"]}' /></td>
+        <td>${$data["站点名称"]}</td>
+        <td>${$data["PH"]}</td>
+        <td>${$data["DO(mg/L)"]}</td>
+        <td>${$data["COD(mg/L)"]}</td>
+        <td>${$data["NH3-N(mg/L)"]}</td>
+        <td>${[本周水质]}</td>
+    </tr>
+</script>
+
+<script id="administrativePotency" type="text/x-jquery-tmpl">
+    <tr>
+        <!--<td><a href="javascript:$('#imgblgc').hide(); $('#imgblgcSmall').hide(); if((window.innerWidth - $('#content-cockpit').width()) <= mapMinWidth){detailDialog.changeEnterpriseDetailTab('xzsxSmall');} else{detailDialog.changeEnterpriseDetailTab('xzsx');} detailDialog.show(null,true);">${$data["行政事项"]}</a> </td>-->
+        <td><a href="administration.html" target="_blank">${$data["行政事项"]}</a></td>
+        <td>${$data["办件数量"]}</td>
+        <td>${$data["审批用时（工作时）"]}</td>
+        <td>${$data["比法定时提前（工作时）"]}</td>
+    </tr>
+</script>

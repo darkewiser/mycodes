@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>应急指挥</title>
+    <script src="js/jquery-2.0.3.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.js"></script>
+    <script src="js/jquery.tmpl.min.js"></script>
+    <script src="js/highcharts.js"></script>
+    <script src="js/exporting.js"></script>
+    <script src="js/highcharts-more.js"></script>
+    <script src="http://api.map.baidu.com/api?v=1.5&ak=6abbbc225464f81f8beefb0a945e65d0" type="text/javascript"></script>
+    <script src="js/Common.js"></script>
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <link href="css/Command.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="rootZone">
+        <div class="leftZone">
+            <div id="leftTopLinkZone" class="ui-widget-content">
+                <ul>
+                    <li><a href="联系人名单.docx">联系人清单</a></li>
+                    <li><a href="哈尔滨市重污染天气应急预案.docx">应急响应预案</a></li>
+                </ul>
+            </div>
+            <div id="leftTabZone">
+                <ul>
+                    <li><a href="#measuresTable">响应措施实施情况</a></li>
+                </ul>
+                <div>
+                    <table id="measuresTable" class="commonTable">
+                        <thead>
+                            <tr>
+                                <td style="width: 15%">状态</td>
+                                <td style="width: 55%">事项</td>
+                                <td style="width: 30%">责任单位</td>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>
+                                <img src="img/save.png" /></td>
+                            <td>新闻发布</td>
+                            <td>新闻局</td>
+                        </tr>
+                        </thead>
+                    <tr>
+                        <td>
+                            <img src="img/save.png" /></td>
+                        <td>重点排放清单</td>
+                        <td>环保局</td>
+                    </tr>
+                        <tr>
+                            <td>
+                                <img src="img/ppoint.png" /></td>
+                            <td>建设工地停工,渣土停运</td>
+                            <td>建委，交管</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="img/ppoint.png" /></td>
+                            <td>机动车限号</td>
+                            <td>交管局</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="img/delete.png" /></td>
+                            <td>禁止露天烧烤</td>
+                            <td>城管局</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img src="img/save.png" /></td>
+                            <td>中小学停课</td>
+                            <td>教育局</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="allCityDataChart"></div>
+                <div id="posDataChart"></div>
+            </div>
+
+        </div>
+        <div class="centerZone">
+            <div id="map-canvas"></div>
+            <div id="lowercharZone">
+                <div id="so2TotalChart"></div>
+                <div id="noxTotalChart"></div>
+                <div id="grainTotalChart"></div>
+            </div>
+        </div>
+        <div class="rightZone">
+            <div id="rightTabZone">
+                <!--<ul>
+                    <li><a href="#tabCpfqd">排放清单</a></li>
+                    <li><a href="#tabCcbgj">超标告警</a></li>
+                </ul>-->
+                <div id="tabCcbgj">
+                    <div class="tabTitle">超标告警</div>
+                    <table id="cbgjTable" class="commonTable">
+                        <thead>
+                            <tr>
+                                <td>状态</td>
+                                <td>污染源</td>
+                                <td>排口</td>
+                                <td>描述</td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div id="tabCpfqd">
+                    <div class="tabTitle" style="border-top: none;">排放清单</div>
+                    <table id="pfqdTable" class="commonTable">
+                        <thead>
+                            <tr style="line-height: 21px;">
+                                <td style="width: 15%">状态</td>
+                                <td style="width: 30%">污染源</td>
+                                <td style="width: 28%">SO2<br />
+                                    排放量/限值</td>
+                                <td>Nox<br />
+                                    排放量/限值 </td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="js/Command.js"></script>
+<script src="js/CommandData.js"></script>
+<script id="pfqdTemplate" type="text/x-jquery-tmpl">
+    <tr>
+        <td>
+            <img src='${$data["状态"]}' /></td>
+        <td>${$data["污染源"]}</td>
+        <td>${$data["SO2排放量"]}/${$data["SO2排放限值"]}</td>
+        <td>${$data["Nox排放量"]}/${$data["Nox排放限值"]}</td>
+    </tr>
+</script>
+<script id="cbgjTemplate" type="text/x-jquery-tmpl">
+    <tr>
+        <td style="width: 12%">
+            <img src='${$data["状态"]}' /></td>
+        <td style="width: 30%">${$data["污染源"]}</td>
+        <td style="width: 22%">${$data["排口"]}</td>
+        <td>${$data["描述"]}</td>
+    </tr>
+</script>
+
+

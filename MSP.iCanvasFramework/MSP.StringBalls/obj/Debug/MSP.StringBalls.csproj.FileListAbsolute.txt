@@ -1,0 +1,5 @@
+D:\internal_projects\MSP.iCanvasFramework\MSP.StringBalls\bin\MSP.StringBalls.dll
+D:\internal_projects\MSP.iCanvasFramework\MSP.StringBalls\bin\MSP.StringBalls.pdb
+D:\internal_projects\MSP.iCanvasFramework\MSP.StringBalls\obj\Debug\MSP.StringBalls.csprojResolveAssemblyReference.cache
+D:\internal_projects\MSP.iCanvasFramework\MSP.StringBalls\obj\Debug\MSP.StringBalls.dll
+D:\internal_projects\MSP.iCanvasFramework\MSP.StringBalls\obj\Debug\MSP.StringBalls.pdb

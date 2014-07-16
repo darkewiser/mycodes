@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSP.SvgMap", "WordMap\MSP.SvgMap.csproj", "{4C650A28-D46E-4FBE-88A6-0206C8337DA2}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://msp-vstf:8080/tfs/msp-of
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = WordMap\\MSP.SvgMap.csproj
+		SccProjectName1 = WordMap
+		SccLocalPath1 = WordMap
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C650A28-D46E-4FBE-88A6-0206C8337DA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C650A28-D46E-4FBE-88A6-0206C8337DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C650A28-D46E-4FBE-88A6-0206C8337DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C650A28-D46E-4FBE-88A6-0206C8337DA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

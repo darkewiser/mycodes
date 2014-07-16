@@ -1,0 +1,5 @@
+D:\internal_projects\MSP.SvgMap\WordMap\bin\WordMap.dll
+D:\internal_projects\MSP.SvgMap\WordMap\bin\WordMap.pdb
+D:\internal_projects\MSP.SvgMap\WordMap\obj\Debug\MSP.SvgMap.csprojResolveAssemblyReference.cache
+D:\internal_projects\MSP.SvgMap\WordMap\obj\Debug\WordMap.dll
+D:\internal_projects\MSP.SvgMap\WordMap\obj\Debug\WordMap.pdb

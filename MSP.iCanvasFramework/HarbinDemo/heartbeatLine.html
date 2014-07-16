@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>心跳线</title>
+    <script src="iCanvas/iCanvas_v1_1_1.js"></script>
+    <script src="js/heartbeatLine.js"></script>
+    <script>
+        window.onload = function () {
+
+            var data = [];
+            var labels = [];
+            var obj = new Date();
+            obj.setMinutes(0);
+            obj.setSeconds(0);
+            var current = obj.getTime();
+            for (var i = 13; i >= 0; i--) {
+                var _time = current - i * 3600000;
+                var _result = buildData(_time);
+                data.push(_result.v);
+                labels.push(_result.k);
+            }
+
+            function buildData(ms) {
+                var _obj = ms == undefined ? new Date() : new Date(ms);
+                //_key = (hour || _obj.getHours()) + ":00:00",
+                _key = _obj.getHours() + ":00";
+                _data = parseInt(Math.random() * 120, 10);
+                return { k: _key, v: _data };
+            }
+
+
+            var heartbeat = heartbeatLineChart({
+                cvsId: "c2",
+                width: 850,
+                height: 250,
+                data: data,
+                labels: labels
+
+
+            });
+            
+            heartbeat.onPointClick(function (point, cord) {
+                var popup = document.getElementById("popup");
+                var cvs = document.getElementById("c2");
+                if (parseInt(point.text, 10) > 90) {
+                    var _offsetLeft = parseInt(cvs.offsetLeft, 10);
+                    var _offsetTop = parseInt(cvs.offsetTop, 10);
+                    popup.style.display = "block";
+                    popup.style.left = (cord.x + _offsetLeft) + "px";
+                    popup.style.top = (cord.y + _offsetTop) + "px";
+                }
+            });
+            
+            heartbeat.addMoveCompletedHandler(function (value) {
+                document.getElementById("txt").innerHTML=value;
+
+
+            })
+
+            document.getElementById("popup").onmouseout = function () {
+                this.style.display = "none";
+            }
+            setTimeout(function () {
+                var _result = buildData();
+                heartbeat.addData(_result.k, _result.v);
+                heartbeat.activedRenderAnimation();
+                setTimeout(arguments.callee, 30000);
+            }, 30000);
+        }
+    </script>
+    <style>
+        .popup {
+            position: absolute;
+            display: none;
+            width: 100px;
+            height: 100px;
+            border: 1px solid gray;
+            background: gray;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div id="popup" class="popup">asdfasdf</div>
+
+    <div id="txt"></div>
+    <canvas id="c2" width="850" height="250" style="margin-left: 100px;"></canvas>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+D:\internal_projects\MSP.iCanvasFramework\MSP.iCanvasFramework\bin\MSP.iCanvasFramework.dll
+D:\internal_projects\MSP.iCanvasFramework\MSP.iCanvasFramework\bin\MSP.iCanvasFramework.pdb
+D:\internal_projects\MSP.iCanvasFramework\MSP.iCanvasFramework\obj\Debug\MSP.iCanvasFramework.csprojResolveAssemblyReference.cache
+D:\internal_projects\MSP.iCanvasFramework\MSP.iCanvasFramework\obj\Debug\MSP.iCanvasFramework.dll
+D:\internal_projects\MSP.iCanvasFramework\MSP.iCanvasFramework\obj\Debug\MSP.iCanvasFramework.pdb

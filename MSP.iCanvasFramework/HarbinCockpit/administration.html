@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="js/jquery-2.0.3.js"></script>
+    <script src="js/Common.js"></script>
+    <link href="css/HarCockpit.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="xzsx" style="text-align: center;">
+        <img id="imgxzsx" src="img/xzsx.png" usemap="#mapxzsx" />
+        <img id="imgblgc" src="img/blgc.jpg" width="900" style="display: none; position: absolute" />
+        <div id="closeBtn" style="display: none; position: absolute;">
+            <a href="javascript:closeblgc();">
+                <img src="img/close.gif" /></a>
+        </div>
+        <map id="mapxzsx">
+            <area shape="rect" coords="366,101,427,607" href="javascript:showblgc();" />
+            <!--<area shape="rect" coords="973,0,1011,13" href="javascript:detailDialog.hide();" />-->
+        </map>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            var imgxzsxHeight = $("#imgxzsx").height();
+            var marTop = (document.body.clientHeight - imgxzsxHeight) / 2 + "px";
+            $("#xzsx").css("margin-top", marTop);
+        });
+        function showblgc() {
+            $("#imgblgc").show();
+            $("#closeBtn").show();
+
+            var imgxzsxWidth = $("#imgxzsx").width();
+            var left = ($("#imgxzsx").outerWidth() - $("#imgblgc").outerWidth()) / 2 + (document.body.clientWidth - imgxzsxWidth) / 2;
+            var top = ($("#imgxzsx").outerHeight() - $("#imgblgc").outerHeight()) / 2;
+            var closeLeft = parseFloat(left) + 870 + "px";
+            var closeTop = parseFloat(top) + 3 + "px";
+            $("#imgblgc").css({ top: top, left: left });
+            $("#closeBtn").css({ top: closeTop, left: closeLeft });
+        }
+        function closeblgc() {
+            $("#imgblgc").hide();
+            $("#closeBtn").hide();
+        }
+    </script>
+</body>
+</html>

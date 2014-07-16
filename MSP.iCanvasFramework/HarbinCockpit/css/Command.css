@@ -1,0 +1,144 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    min-width: 1366px;
+    height: 100%;
+    min-height: 600px;
+    font-size: 13px;
+    background-color: #ebebeb;
+}
+
+
+#rootZone {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.rightZone {
+    float: right;
+    height: 100%;
+    width: 340px;
+    /*min-height: 850px;*/
+    /*overflow-x: hidden;
+    overflow-y: auto;*/
+}
+
+.centerZone {
+    height: 100%;
+    float: left;
+}
+
+.leftZone {
+    height: 100%;
+    float: left;
+    width: 290px;
+}
+
+#leftTopLinkZone {
+    background-color: #a5d178;
+}
+
+    #leftTopLinkZone ul, #leftTopLinkZone li, #leftTopLinkZone a {
+        display: inline-block;
+        font-size: 15px;
+        line-height: 18px;
+        text-decoration: none;
+        padding-left: 8px;
+        font-weight: 600;
+        color: white;
+    }
+
+#map-canvas {
+    height: 100%;
+    position: absolute;
+}
+
+#lowercharZone {
+    position: absolute;
+    height: 260px;
+}
+
+.ui-tabs .ui-tabs-panel {
+    padding: 1em 1px 1em 1px;
+}
+
+#pfqdTable {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.commonTable {
+    border: 1px solid #d8d8d8;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table tr {
+    background-color: white;
+    font-size: 14px;
+    font-family: 'Microsoft YaHei';
+    color: #555;
+    line-height: 26px;
+}
+
+    /*table tr:nth-child(2n) {
+        background-color: #eee;
+    }*/
+
+    table tr td {
+        border: 1px solid #d8d8d8;
+        text-align: center;
+        color: #555;
+    }
+
+.commonTable tr td a, .commonTable tr td a:visited, .commonTable tr td a:link {
+    text-decoration: none;
+    color: #555;
+}
+
+    .commonTable tr td a:hover {
+        text-decoration: none;
+        color: #599bd7;
+    }
+
+
+#so2TotalChart, #noxTotalChart {
+    float: left;
+}
+
+/*#leftTabZone ul li a:visited, #rightTabZone ul li a:visited {
+    background-color: #f2f2f4 !important; #dadada
+}*/
+
+#leftTabZone ul li {
+    background-color: #a5d178;
+}
+
+    #leftTabZone ul li a, #rightTabZone ul li a {
+        color: white !important;
+    }
+
+.tabTitle {
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Microsoft YaHei';
+    color: white;
+    background-color: #a5d178;
+    border: 1px solid #d8d8d8;
+    border-bottom: none;
+}
+
+/*#tabCpfqd {
+    margin-top: 10px;
+}*/
+
+.BMapLabel
+{
+    background-color: transparent !important;
+}

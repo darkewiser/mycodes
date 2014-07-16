@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script src="js/jquery-2.0.3.js"></script>
+    <link href="css/heartbeat.css" rel="stylesheet" />
+    <link href="css/pieChart.css" rel="stylesheet" />
+    <script src="iCanvas/iCanvas_v1_1_1.js"></script>
+    <script src="js/heartbeatLine.js"></script>
+    <script src="js/heartbeatLineConfig.js"></script>
+    <!--<script src="js/pieChart.js"></script>-->
+    <script src="js/keywords.js"></script>
+    <script type="text/javascript">
+
+        window.addEventListener("load", function () {
+            var iCanvasInstance = new canvasWrapper();
+            keyWord.init("keywords").applyURL("/js/g.h?timeUnit=hotword").applyDealer(function () {
+                var _blks = keyWord.getBlocks();
+                var ani1 = iCanvasInstance.addAnimation(20);
+                function random(x, y, ctrl, animation, wait) {
+                    var _w, _h;
+                    if (!(x && y)) {
+                        var _container = keyWord.getContainer();
+                        _w = x == undefined ? _container.clientWidth : x;
+                        _h = y == undefined ? _container.clientHeight : y;
+                    }
+                    else {
+                        _w = x;
+                        _h = y;
+                    }
+                    ctrl.init(_w, _h);
+                    animation.logChanges(ctrl, { left: ctrl.x - _w, top: ctrl.y - _h }, (wait ? wait : 0) * 5, 2);
+
+                }
+
+                for (var i = 0, ci; ci = _blks[i]; i++) {
+                    random(10, 1, ci, ani1, 13 - i);
+                }
+                ani1.active();
+                iCanvasInstance.autoStart();
+            }).applyBlocks(
+                     [
+                                { x: 0, y: 0, w: 3, h: 1, c: "#fc7459", t: "油价年内第七涨" }
+
+                                , { x: 0, y: 1, w: 2, h: 2, c: "rgb(231,169,111)", t: "北京购车摇号新政" }
+                                , { x: 2, y: 1, w: 1, h: 2, c: "#f9c851", t: "雾霾" }
+
+                                , { x: 0, y: 3, w: 3, h: 1, c: "#a4c947", t: "PM2.5" }
+
+                                , { x: 0, y: 4, w: 1, h: 2, c: "#22a4a9", t: "" }
+                                , { x: 1, y: 4, w: 2, h: 1, c: "rgb(154,184,182)", t: "sharepoint" }
+                                , { x: 1, y: 5, w: 2, h: 1, c: "rgb(169,194,148)", t: "" }
+
+                                , { x: 0, y: 6, w: 1, h: 2, c: "#00bcf2", t: "ux" }
+                                , { x: 1, y: 6, w: 1, h: 2, c: "rgb(47,208,255)", t: "ux" }
+                                , { x: 2, y: 6, w: 1, h: 2, c: "rgb(102,202,255)", t: "ux" }
+
+                                , { x: 0, y: 8, w: 1, h: 1, c: "rgb(206,126,254)", t: "ux" }
+                                , { x: 1, y: 8, w: 1, h: 1, c: "rgb(227,146,254)", t: "ux" }
+                                , { x: 2, y: 8, w: 1, h: 1, c: "rgb(247,168,253)", t: "ux" }
+                     ]
+                );
+           
+        }
+        );
+    </script>
+</head>
+<body>
+    <div id="popup" class="popup">
+        <div id="arrow" class="arrow"></div>
+        <div id="content" class="content">
+        </div>
+    </div>
+
+    <div class="body_content">
+        <div class="top">
+            <div class="logo">
+                <img src="img/Logo.png" alt="logo" />
+            </div>
+            <div class="title">
+                <h1>无锡环保舆情监控系统</h1>
+            </div>
+        </div>
+        <div class="content">
+            <div class="left">
+                <ul>
+                    <li><a href="#">主页</a></li>
+                    <li><a href="#">新闻</a></li>
+                    <li><a href="#">报告</a> </li>
+                    <li><a href="#">Blog</a> </li>
+                </ul>
+            </div>
+            <div class="center">
+                <div class="banner">
+                    <div class="banner_labels">
+                        <div class="label_left">
+                            <h2>实时舆情指数监测图</h2>
+                        </div>
+                        <div class="label_right">
+                            刚刚过去的一小时舆情指数为
+                            <div id="hit">0</div>
+                        </div>
+                    </div>
+                    <div class="canvas">
+                        <canvas id="c1" width="785" height="350" style="margin-left: 15px;">canvas not supported</canvas>
+                    </div>
+
+                    <div class="banner_labels">
+                        <div class="label_left">
+                            <h2>服务满意度舆情曲线</h2>
+                        </div>
+                    </div>
+                    <div class="canvas">
+                        <canvas id="c2" width="785" height="160" style="margin-left: 15px;">canvas not supported</canvas>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="right">
+                <div id="keywords">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

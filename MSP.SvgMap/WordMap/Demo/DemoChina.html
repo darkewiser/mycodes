@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="../Scripts/Common/jquery.vector-map.css" rel="stylesheet" />
+    <script src="../Scripts/MapData/demomap.js"></script>
+    <script src="../Scripts/Common/jquery-1.7.1.min.js"></script>
+    <script src="../Scripts/Common/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="../Scripts/SvgMap.js"></script>
+
+</head>
+<body>
+    <div id="divmap" style="width: 900px; height: 800px;"></div>
+</body>
+<script>
+
+    var map = new SvgMap();
+    //svg 描点时地图的宽度和高度
+    map.mapWidth = 297;
+    map.mapHeight = 297;
+
+    //背景色
+    map.mapParams.backgroundColor = "#ffffff";
+    //地图填充色
+    map.mapParams.regionStyle.initial["fill"] = "#fec0c3";
+    //地图数据 demomap.js 中
+    map.init(mapChinaMap);
+    //生成地图，divmap  承载地图元素id
+    map.create("divmap");
+    map.onRegionLabelShow = function (e, element, code) {
+ 
+        element.html(code + "<table style='background-color:red;'><tr><td>test1</td></tr><tr><td>test2</td></tr></table>");
+    }
+
+    map.onRegionClick = function (e, code) {
+        alert("test code:" + code);
+    }
+
+    //设置广东为绿色
+    map.setColor("GUD", "green");
+
+    //设置地图背景色
+    map.setBackgroundColor("black");
+
+</script>
+</html>
